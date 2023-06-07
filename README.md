@@ -1,7 +1,10 @@
 # Experiment-08- Encoders-and-decoders 
-### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM:
+To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
+### HARDWARE REQUIRED:
+– PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:  
+Quartus prime
 ### THEORY 
 
 ## Encoders
@@ -45,52 +48,69 @@ D5 = X Y’ Z
 D6 = X Y Z’
 D7 = X Y Z 
 
-
 ![image](https://user-images.githubusercontent.com/36288975/171543978-ee2d0671-2846-40a1-8705-507fd6287a49.png)
 ## Figure -03 8 to 3 Decoder 
-
-
-
 ![image](https://user-images.githubusercontent.com/36288975/171543866-5a6eace6-8683-49d7-9c4f-a7cb30ec3035.png)
 ## Figure -04 8 to 3 Decoder implementation 
-
 ### Procedure
-/* write all the steps invloved */
-
-
-
+- create module encoder and decoder.
+- Get inputs and outputs for encoders and decoders.
+- perform or operation for encoder and and logic for decoders.
+- perform RTL LOGIC and get waveform.
 ### PROGRAM 
+```
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by:Vasanthamukilan.M
+RegisterNumber:212222230167
 */
+```
+- ENCODERS
+```
+module enc(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output a,b,c;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+```
+- DECODERS
+```
+module enc(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule 
+```
+### RTL LOGIC
+- ENCODER
 
+![215453507-0fb6c730-852f-4c2b-9db5-245cac55560b](https://github.com/Vasanthamukilan/Experiment-08-Encoders-and-decoders-/assets/119559694/a852dfce-7d3d-443c-8fc3-b2363d628f99)
+- DECODER
 
-
-
-
-
-### RTL LOGIC  
-
-
-
-
-
-
-
-
+![215453638-f3003599-ddba-401a-8920-1c17a205e91a](https://github.com/Vasanthamukilan/Experiment-08-Encoders-and-decoders-/assets/119559694/208c0a71-aeca-45ca-994e-1659607ae766)
 ### TIMING DIGRAMS  
+- ENCODER
 
+![215453684-9ef72f65-56ae-4b1e-8703-43a59a895afa](https://github.com/Vasanthamukilan/Experiment-08-Encoders-and-decoders-/assets/119559694/c6f1a1e5-50cc-4dff-b81f-47dbcf1da1cb)
+- DECODER
 
-
-
+![215453742-ef3f6b9d-ec5e-4991-bec3-cbada11b3bc9](https://github.com/Vasanthamukilan/Experiment-08-Encoders-and-decoders-/assets/119559694/da215cee-3be7-4f96-ba8d-09f3ea06a5ec)
 
 ### TRUTH TABLE 
+- ENCODER
 
+![214302854-1b4d2c6e-a161-41d1-a7c8-03b4ab5976af](https://github.com/Vasanthamukilan/Experiment-08-Encoders-and-decoders-/assets/119559694/02616759-9ff7-45ad-9af2-5399ef77fdbe)
+- DECODER
 
-
-
-
-
+![214303139-99d11dee-5b87-47d1-bac7-29c0eaf07237](https://github.com/Vasanthamukilan/Experiment-08-Encoders-and-decoders-/assets/119559694/8eac1bb5-8b1b-47a3-bc81-e71091c98039)
 ### RESULTS 
+Thus the program to desing encoder and decoder is done.
